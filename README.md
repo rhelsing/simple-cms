@@ -1,3 +1,2 @@
 #TODO
-* implement auth
-* DB
+* finish cms lol
