@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  #get 'demo/index'
-  match ':controller(/:action(/:id(.:format)))', :via => :get
+  root "demo#index"#default page
+  #get 'demo/index' #Simple match
+  match ':controller(/:action(/:id(.:format)))', :via => :get #not best practice anymore
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
