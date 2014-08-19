@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+	<div><%= flash[:notice] %></div>
+<% end %>
+<h2>Subjects</h2>
+<%= link_to("New Subject", {:action => 'new'}, :class => 'action new') %>
+<table>
+	<tr>
+		<th> </th>
+		<th>Subject</th>
+		<th>Visible</th>
+		<th>Pages</th>
+		<th>Actions</th>
+	</tr>
+<% @subjects.each do |subject| %>
+	<tr>
+		<th><%= subject.position %></th>
+		<th><%= subject.name %></th>
+		<th><%= subject.visible %></th>
+		<th><%= subject.pages.size %></th>
+		<th>
+			<%= link_to("Show", {:action => 'show', :id=> subject.id}, :class => 'action new') %>
+			<%= link_to("Edit", {:action => 'edit', :id=> subject.id}, :class => 'action edit') %>
+			<%= link_to("Delete", {:action => 'destroy', :id=> subject.id}, :class => 'action delete') %>
+		</th>
+	</tr>
+	<% end %>
+</table>
