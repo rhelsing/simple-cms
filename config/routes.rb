@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   root "demo#index"#default page
+  get 'admin', :to => 'access#index'
   #get 'demo/index' #Simple match
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post] #not best practice anymore
 

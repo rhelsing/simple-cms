@@ -3,7 +3,8 @@ class Subject < ActiveRecord::Base
 	#has_one :page #subject.page = page
 	has_many :pages #subject.pages > array
 	
-	validates_presence_of :name#enforce validation on model
+	validates_presence_of :name #enforce validation on model
+	validates_length_of :name, :maximum => 255, :message => "is too freaking long"
 	#very useful
 	scope :visible, lambda {where(:visible => true)}#Subject.visible
 	scope :invisible, lambda {where(:visible => false)}#Subject.invisible
