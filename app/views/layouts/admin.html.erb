@@ -2,11 +2,7 @@
 <html>
 <head>
 	<title>Simple CMS | <%= @page_title || "Admin" %></title>
-	<style type="text/css">
-		span.status{display: block; width: 10px; height: 10px}
-		span.status.true{background: green;}
-		span.status.false{background: red;}
-	</style>
+	<%= stylesheet_link_tag('application', :media => 'all') %>
 </head>
 <body>
 	<div id="header">
