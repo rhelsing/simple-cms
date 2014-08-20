@@ -1,8 +1,7 @@
-<% if flash[:notice] %>
-	<div><%= flash[:notice] %></div>
-<% end %>
+<% @page_title = "Subjects" %>
 <h2>Subjects</h2>
 <%= link_to("New Subject", {:action => 'new'}, :class => 'action new') %>
+<div><%= pluralize(@subjects.size, 'Subject') %> found </div>
 <table>
 	<tr>
 		<th> </th>
@@ -15,7 +14,7 @@
 	<tr>
 		<th><%= subject.position %></th>
 		<th><%= subject.name %></th>
-		<th><%= subject.visible %></th>
+		<th><%= status_tag(subject.visible) %></th>
 		<th><%= subject.pages.size %></th>
 		<th>
 			<%= link_to("Show", {:action => 'show', :id=> subject.id}, :class => 'action new') %>

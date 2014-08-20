@@ -14,4 +14,7 @@ class DemoController < ApplicationController
   	redirect_to(:controller => 'demo', :action => 'index')#could leave off controller
   end
 
+  def text_helpers
+  end
+
 end

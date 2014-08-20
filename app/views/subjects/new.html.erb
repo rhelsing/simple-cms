@@ -1,7 +1,5 @@
 <h1>Subjects#new</h1>
 <%= form_for(:subject, :url =>{:action => 'create'}) do |f| %>
-	<%= f.text_field(:name) %>
-	<%= f.text_field(:position) %>
-	<%= f.text_field(:visible) %>
+	<%= render(:partial => "form", :locals => {:f => f}) %>
 	<%= submit_tag("Create Subject") %>
 <% end %>
