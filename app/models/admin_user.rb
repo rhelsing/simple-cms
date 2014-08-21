@@ -7,6 +7,8 @@ class AdminUser < ActiveRecord::Base
 	has_many :section_edits
 	has_many :sections, :through => :section_edits
 
+	scope :sorted,  lambda {order("admin_users.last_name ASC, admin_users.first_name ASC")}
+
 	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 	validates_presence_of :first_name
 	validates_length_of :first_name, :maximum => 25
@@ -17,6 +19,10 @@ class AdminUser < ActiveRecord::Base
 	validates_uniqueness_of :username
 
 	#sexy validation
+
+	validates :password,
+		:length => {:within => 7..50}, 
+		:on => :create
 
 	validates :email, 
 		:presence => true, 
@@ -30,6 +36,11 @@ class AdminUser < ActiveRecord::Base
 			#errors.add(:username, "has been determined to fail.. always.")#add error to attribute
 			errors[:base] << "No new users on Saturdays!"
 		end
+	end
+
+	def name
+		#{}"#{first_name} #{last_name}"
+		[first_name, last_name].join(' ')
 	end
 
 end
