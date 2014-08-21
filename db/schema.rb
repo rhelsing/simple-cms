@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820220656) do
+ActiveRecord::Schema.define(version: 20140821181010) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      limit: 25
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140820220656) do
     t.string   "name"
     t.integer  "position"
     t.boolean  "visible"
-    t.integer  "permalink"
+    t.string   "permalink"
     t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"

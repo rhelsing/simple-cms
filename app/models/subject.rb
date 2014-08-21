@@ -2,6 +2,8 @@ class Subject < ActiveRecord::Base
 	#relation
 	#has_one :page #subject.page = page
 	has_many :pages #subject.pages > array
+
+	acts_as_list #freaking cool. Uses position field. Sorts automatically
 	
 	validates_presence_of :name #enforce validation on model
 	validates_length_of :name, :maximum => 255, :message => "is too freaking long"
