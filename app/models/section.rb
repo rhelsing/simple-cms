@@ -5,6 +5,8 @@ class Section < ActiveRecord::Base
 
   CONTENT_TYPES = ['text', 'HTML']
 
+  after_save :touch_page
+
   validates_presence_of :name
   validates_length_of :name, :maximum => 255, :message => "is too freaking long"
   validates_inclusion_of :content_type, :in => CONTENT_TYPES, :message => "must be one of: #{CONTENT_TYPES.join(', ')}"
@@ -14,4 +16,10 @@ class Section < ActiveRecord::Base
   scope :visible, lambda {where(:visible => true)}#Subject.visible
   scope :invisible, lambda {where(:visible => false)}#Subject.invisible
   scope :newest_first,  lambda {order("sections.created_at DESC")}
+ 
+  private
+  def touch_page
+    #update timestamp of subject
+    page.touch
+  end
 end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root "access#login"#default page
+
+  root "public#index"#default page
+  get 'show/:permalink', :to => 'public#show'
   get 'admin', :to => 'access#index'
   #get 'demo/index' #Simple match
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post] #not best practice anymore

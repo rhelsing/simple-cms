@@ -1,7 +1,7 @@
 class Subject < ActiveRecord::Base
 	#relation
 	#has_one :page #subject.page = page
-	has_many :pages #subject.pages > array
+	has_many :pages, :dependent => :destroy #subject.pages > array
 
 	acts_as_list #freaking cool. Uses position field. Sorts automatically
 	
