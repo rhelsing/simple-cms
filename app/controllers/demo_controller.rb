@@ -17,4 +17,10 @@ class DemoController < ApplicationController
   def text_helpers
   end
 
+  def make_error
+    #render(:text => "test")#syntax error
+    #render(:text => @something.upcase)#undefined method
+    #render(:text => "1"+1)#can't convert type
+  end
+
 end
